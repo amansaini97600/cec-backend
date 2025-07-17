@@ -16,14 +16,6 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-
-// async function generateHash() {
-//   const hash = await bcrypt.hash("admin123", 10);
-//   console.log("Hashed Password:", hash);
-// }
-
-// generateHash();
-
 app.post("/api/admin/login", async (req, res) => {
   const { email, password } = req.body;
 
