@@ -37,19 +37,13 @@ const app = express();
 // Serve uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Serve React build folder
-app.use(express.static(path.join(__dirname, "dist")));
+// app.use(express.static(path.join(__dirname, "dist")));
 
-// CORS and JSON
 app.use(cors());
 app.use(express.json());
-
-// Backend APIs yahan add karo (before catch-all route)
-
-// React Router fallback (very important)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "dist", "index.html"));
+// });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
